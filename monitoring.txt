@@ -1,1 +1,2 @@
-Azure monitoring - Change line - 1 - Master -- changed again master
+<<<<<<< HEAD
+Azure monitoring - Change line - 1 - Master -- changed again master --> changed by Branch feature-1
