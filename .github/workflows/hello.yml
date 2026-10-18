@@ -1,12 +1,16 @@
-name: First Workflow
+name: Run shell script
 
 on:
   push
 
 jobs:
-  hello-job:
+  run-script:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo "Hello Surya"
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Executable script
+        run: bash scripts/hello.sh   
