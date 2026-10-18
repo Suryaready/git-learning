@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Executable script
-        run: bash scripts/hello.sh   
+        run: bash scripts/system-info.sh   
