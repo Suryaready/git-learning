@@ -4,16 +4,13 @@ on:
   push
 
 jobs:
-  env-demo:
+  secret-job:
 
     runs-on: ubuntu-latest
 
-    env:
-      COURSE: GithubActions
-      OWNER: Surya
-
     steps:
-      - name: Print Variables
-        run: |
-          echo $COURSE
-          echo $OWNER  
+
+      - uses: actions/checkout@v4
+      
+      - name: Print Secret
+        run: echo "Hello ${{ secrets.MYNAME }}"
