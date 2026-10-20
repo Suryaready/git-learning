@@ -1,25 +1,17 @@
-name : CI Pipeline
+name : Artifact Demo
 on: push
 
 jobs:
-  build:
+  generate-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        run: echo "Building..."
+      - uses: actions/checkout@v4
 
-  test:
-    needs: build
+      - name: Generate Report
+        run: bash scripts/report.sh
 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: echo "Testing..."
-
-  deploy:
-    needs: test
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
-        run: echo "Deploying..."
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with: 
+          name: system-report
+          path: report.txt
