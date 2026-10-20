@@ -1,16 +1,25 @@
-name: Run shell script
-
-on:
-  push
+name : CI Pipeline
+on: push
 
 jobs:
-  secret-job:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo "Building..."
+
+  test:
+    needs: build
 
     runs-on: ubuntu-latest
-
     steps:
+      - name: Test
+        run: echo "Testing..."
 
-      - uses: actions/checkout@v4
-      
-      - name: Print Secret
-        run: echo "Hello ${{ secrets.MY_NAME }}"
+  deploy:
+    needs: test
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Deploying..."
